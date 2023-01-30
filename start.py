@@ -104,4 +104,6 @@ if confirm == '':
     click_on_image('pdfbutton.PNG')
     wait(3)
     hotkey('enter')
+    wait(.2)
+    hotkey('enter')
     input('Press Enter to continue')
