@@ -1,6 +1,13 @@
 import pyautogui
 import time
 
+
+#please note!!! I have added the wait times speficily 7 seconds after a 
+#selecting to view the document
+#I have this because I calculated that this is most likely more than 
+#enough time for RTS to pull up the Document
+
+# clears up writing space for later.
 hotkey = pyautogui.hotkey
 
 click = pyautogui.click
@@ -24,7 +31,6 @@ def click_on_image(image_path):
     except Exception as e:
         print(f"Could not find image: {e}")
 
-defaultwait = time.sleep(0)
 
 confirm = input('Make sure there is nothing on RTS, just login and press enter to continue')
 print('The script will start in 5 seconds, swtich over to RTS')
