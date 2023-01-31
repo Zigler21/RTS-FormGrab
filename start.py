@@ -20,7 +20,7 @@ presskey = pyautogui.press
 
 #Reports back on any clicked images and their pos.
 def click_on_image(image_path):
-    max_attempts = 10
+    max_attempts = 50
     attempts = 0
     while attempts < max_attempts:
         try:
@@ -60,7 +60,6 @@ if confirm == '':
     wait(1.5)
     click_on_image('view-ticket.png')
     #This opens the view ticket document
-    wait(5)
     presskey('right')
     wait(.5)
     hotkey('enter')
