@@ -20,15 +20,26 @@ presskey = pyautogui.press
 
 #Reports back on any clicked images and their pos.
 def click_on_image(image_path):
-    while True:
+    max_attempts = 10
+    attempts = 0
+    while attempts < max_attempts:
         try:
-            image_location = pyautogui.locateCenterOnScreen(image_path, confidence=0.8)
+            image_location = pyautogui.locateCenterOnScreen(image_path, confidence=1)
+            if image_location is None:
+                print(f"Could not find image: {image_path}")
+                time.sleep(0.5)
+                attempts += 1
+                continue
             pyautogui.click(image_location)
             print(f"Found and clicked on image at {image_location}")
             break
         except Exception as e:
             print(f"Could not find image: {e}")
             time.sleep(0.5)
+            attempts += 1
+    if attempts == max_attempts:
+        print(f"Max attempts reached. Could not find image: {image_path}")
+
 
 
 confirm = input('Make sure there is nothing on RTS, just login and press enter to continue')
