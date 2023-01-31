@@ -39,6 +39,9 @@ def click_on_image(image_path):
             attempts += 1
     if attempts == max_attempts:
         print(f"Max attempts reached. Could not find image: {image_path}")
+        input('press enter to continue')
+        wait(2)
+        quit()
 
 
 
