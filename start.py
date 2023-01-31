@@ -2,11 +2,6 @@ import pyautogui
 import time
 
 
-#please note!!! I have added the wait times speficily 7 seconds after a 
-#selecting to view the document
-#I have this because I calculated that this is most likely more than 
-#enough time for RTS to pull up the Document
-
 # clears up writing space for later.
 hotkey = pyautogui.hotkey
 
@@ -21,6 +16,19 @@ wait = time.sleep
 waitdefault = time.sleep
 
 presskey = pyautogui.press
+
+def TimeDefault(AdjustTime):
+    if AdjustTime <= 1 or AdjustTime >= 5:
+        print('Input error: please select a number between 1 and 5')
+        quit()
+
+    time.sleep(AdjustTime)
+
+AdjustTime = int(input('How busy was it today? ')) + 7
+
+
+
+
 
 #Reports back on any clicked images and their pos.
 def click_on_image(image_path):
@@ -51,7 +59,7 @@ if confirm == '':
     presskey('right')
     wait(.5)
     hotkey('enter')
-    wait(7)
+    TimeDefault(AdjustTime)
     click_on_image('printbutton.PNG')
     wait(1)
     hotkey('enter')
@@ -77,7 +85,7 @@ if confirm == '':
     click_on_image('total.png')
     wait(2)
     click_on_image('viewdep.png')
-    wait(7)
+    TimeDefault(AdjustTime)
     click_on_image('printbutton.PNG')
     wait(1)
     hotkey('enter')
@@ -106,7 +114,7 @@ if confirm == '':
     hotkey('enter')
     wait(.5)
     hotkey('enter')
-    wait(7)
+    TimeDefault(AdjustTime)
     click_on_image('savebutton.PNG')
     wait(.5)
     click_on_image('pdfbutton.PNG')
