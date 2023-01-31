@@ -17,27 +17,18 @@ waitdefault = time.sleep
 
 presskey = pyautogui.press
 
-def TimeDefault(AdjustTime):
-    if AdjustTime <= 1 or AdjustTime >= 5:
-        print('Input error: please select a number between 1 and 5')
-        quit()
-
-    time.sleep(AdjustTime)
-
-AdjustTime = int(input('How busy was it today? ')) + 7
-
-
-
-
 
 #Reports back on any clicked images and their pos.
 def click_on_image(image_path):
-    try:
-        image_location = pyautogui.locateCenterOnScreen(image_path, confidence=0.9)
-        click(image_location)
-        print(f"Found and clicked on image at {image_location}")
-    except Exception as e:
-        print(f"Could not find image: {e}")
+    while True:
+        try:
+            image_location = pyautogui.locateCenterOnScreen(image_path, confidence=0.8)
+            pyautogui.click(image_location)
+            print(f"Found and clicked on image at {image_location}")
+            break
+        except Exception as e:
+            print(f"Could not find image: {e}")
+            time.sleep(0.5)
 
 
 confirm = input('Make sure there is nothing on RTS, just login and press enter to continue')
@@ -59,7 +50,6 @@ if confirm == '':
     presskey('right')
     wait(.5)
     hotkey('enter')
-    TimeDefault(AdjustTime)
     click_on_image('printbutton.PNG')
     wait(1)
     hotkey('enter')
@@ -85,7 +75,6 @@ if confirm == '':
     click_on_image('total.png')
     wait(2)
     click_on_image('viewdep.png')
-    TimeDefault(AdjustTime)
     click_on_image('printbutton.PNG')
     wait(1)
     hotkey('enter')
@@ -114,7 +103,6 @@ if confirm == '':
     hotkey('enter')
     wait(1.5)
     hotkey('enter')
-    TimeDefault(AdjustTime)
     click_on_image('savebutton.PNG')
     wait(.5)
     click_on_image('pdfbutton.PNG')
