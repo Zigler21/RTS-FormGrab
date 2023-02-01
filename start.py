@@ -82,7 +82,7 @@ print('The script will start in 5 seconds, swtich over to RTS')
 #Gets the ticket report box, prints it and saves it as a PDF.
 if confirm == '':
     open_ticket_daily()
-    click_on_image('view-ticket.png')
+    click_on_image('images/view-ticket.png')
     #This opens the view ticket document
     presskey('right')
     wait(.5)
