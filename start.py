@@ -24,7 +24,7 @@ def click_on_image(image_path):
     attempts = 0
     while attempts < max_attempts:
         try:
-            image_location = pyautogui.locateCenterOnScreen(image_path, confidence=1)
+            image_location = pyautogui.locateCenterOnScreen(image_path, confidence=.9)
             if image_location is None:
                 print(f"Could not find image: {image_path}")
                 time.sleep(0.5)
