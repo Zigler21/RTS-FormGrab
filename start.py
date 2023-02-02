@@ -1,13 +1,13 @@
 import pyautogui
 import time
 
-
 # clears up writing space for later.
 hotkey = pyautogui.hotkey
 
 click = pyautogui.click
 
 write = pyautogui.typewrite
+
 
 locate = pyautogui.locateOnScreen
 
@@ -17,7 +17,8 @@ waitdefault = time.sleep
 
 presskey = pyautogui.press
 
-enter = hotkey('enter')
+def enter():
+    hotkey('enter')
 
 def open_ticket_daily():
     wait(5)
