@@ -13,4 +13,7 @@ This script does 3 things:
 Thank you for checking this out , if have any suggestings for improving the code, make a pull request and I will check it out.
 
 
--Joel
+
+### TODO
+- Make the program not be dectected as a virus (virus total thinks its malicous since it takes control of the mouse to find the associated buttons on screen)
+- Simplify code
