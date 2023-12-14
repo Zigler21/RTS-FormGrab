@@ -1,17 +1,28 @@
 import pyautogui
 import time
+import psutil
 
 # clears up writing space for later.
+
 hotkey = pyautogui.hotkey
 
 click = pyautogui.click
 
 write = pyautogui.typewrite
 
-
 locate = pyautogui.locateOnScreen
 
-wait = time.sleep
+def wait(duration):
+    cpu_percent = psutil.cpu_percent()
+    memory_percent = psutil.virtual_memory().percent
+
+    # Calculate the multiplier based on CPU and memory usage
+    multiplier = (cpu_percent + memory_percent) / 200
+
+    # Adjust the duration based on the multiplier
+    adjusted_duration = duration * multiplier
+
+    time.sleep(adjusted_duration)
 
 waitdefault = time.sleep
 
