@@ -51,6 +51,12 @@ def open_conc_vs_inv():
     enter()
     wait(1.5)
 
+def printdoc():
+    user_input = input("Do you want to print the documents? (yes/no): ")
+    if user_input.lower() == "yes":
+        click_on_image('images/printbutton.PNG')
+    else:
+        print("printing skipped!")
 #Reports back on any clicked images and their pos.
 def click_on_image(image_path):
     max_attempts = 50
@@ -94,7 +100,7 @@ if confirm == '':
     wait(.5)
     click_on_image('images/savebutton.PNG')
     wait(.5)
-    click_on_image('images/pdfbutton.PNG')
+    printdoc()
     wait(1)
     enter()
     wait(.3)
@@ -113,7 +119,7 @@ if confirm == '':
     wait(.5)
     click_on_image('images/savebutton.PNG')
     wait(1)
-    click_on_image('images/pdfbutton.PNG')
+    printdoc()
     wait(1)
     enter()
     wait(.3)
@@ -129,7 +135,7 @@ if confirm == '':
     enter()
     click_on_image('images/savebutton.PNG')
     wait(.5)
-    click_on_image('images/pdfbutton.PNG')
+    printdoc()
     wait(3)
     enter()
     wait(.2)
